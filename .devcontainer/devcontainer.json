@@ -1,0 +1,22 @@
+{
+  "name": "Full Stack Dev Container",
+  "build": { "dockerfile": "Dockerfile" },
+  "customizations/vscode/settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+  "remoteUser": "root",
+  "forwardPorts": [5173, 9002],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "bash .devcontainer/start-services.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run FastAPI backend",
+      "type": "shell",
+      "command": "cd backend && uv run uvicorn app.main:app --host 0.0.0.0 --port 9002 --reload",
+      "problemMatcher": [],
+      "group": "build",
+      "isBackground": true
+    },
+    {
+      "label": "Run Vite frontend",
+      "type": "shell",
+      "command": "cd frontend && npm run dev -- --host 0.0.0.0",
+      "problemMatcher": [],
+      "group": "build",
+      "isBackground": true
+    },
+    {
+      "label": "Open Frontend in Browser",
+      "type": "shell",
+      "command": "python3 -m webbrowser http://localhost:5173",
+      "problemMatcher": []
+    },
+    {
+      "label": "Open Backend Docs in Browser",
+      "type": "shell",
+      "command": "python3 -m webbrowser http://localhost:9002/docs",
+      "problemMatcher": []
+    },
+    {
+      "label": "Start both (frontend + backend + open tabs)",
+      "dependsOn": [
+        "Run FastAPI backend",
+        "Run Vite frontend",
+        "Open Frontend in Browser",
+        "Open Backend Docs in Browser"
+      ],
+      "dependsOrder": "parallel"
+    }
+  ]
+}

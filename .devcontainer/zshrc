@@ -1,0 +1,14 @@
+export ZSH="/root/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+plugins=(git node npm python docker zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+
+# Only load Powerlevel10k interactively
+if [ -t 1 ]; then
+  source /root/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
+fi
+
+alias ll='ls -lah'
+alias runserver='cd /workspace/backend && uvicorn app.main:app --reload --host 0.0.0.0 --port 9002 --reload'
+alias runfrontend='cd /workspace/frontend && npm run dev'
+echo "🚀 Welcome, $(whoami)! Node $(node -v) | Python $(python3 --version)"
